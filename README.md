@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# PureFolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built using ReactJS and Tailwind CSS for my personal portfolio.
 
 ## Available Scripts
 
