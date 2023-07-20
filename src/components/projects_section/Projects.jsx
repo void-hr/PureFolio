@@ -9,7 +9,7 @@ const Projects = () => {
     {
       img: first,
       langs: ["HTML", "JavaScript", "React", "Tailwind CSS"],
-      title: "ChertNodes",
+      title: "InvoiZen",
       disc: "Best way to manage your invoices paperless. Invoice web app with framer motion built using React and Tailwind CSS. ",
       link: "https://invoizen.vercel.app/",
     },
