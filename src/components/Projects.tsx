@@ -14,16 +14,6 @@ interface Project {
 // Source links only: the old demo deployments aren't maintained.
 const projects: Project[] = [
   {
-    name: "GitHub Tracker",
-    repo: "https://github.com/void-hr/github-tracker",
-    summary: "Local dashboard for everything happening across my GitHub repos.",
-    points: [
-      "Shows commits, pull requests, reviews, CI status, milestones and the project board in one place.",
-      "Single Go binary with the UI embedded. Fetches repos in parallel with batched GraphQL queries, caches results and stays within GitHub's rate limits.",
-    ],
-    stack: ["Go", "GraphQL", "JavaScript"],
-  },
-  {
     name: "Instafarm",
     repo: "https://github.com/void-hr/sense_assign",
     summary: "Online store for farm supplies where farmers buy credits through Cashfree.",
@@ -36,6 +26,16 @@ const projects: Project[] = [
       { src: "/projects/instafarm/home-light.jpg", alt: "Instafarm home page with farm supply products", width: 1200, height: 695 },
       { src: "/projects/instafarm/add-credits.jpg", alt: "Cashfree checkout for buying credits", width: 1200, height: 867 },
     ],
+  },
+  {
+    name: "GitHub Tracker",
+    repo: "https://github.com/void-hr/github-tracker",
+    summary: "Local dashboard for everything happening across my GitHub repos.",
+    points: [
+      "Shows commits, pull requests, reviews, CI status, milestones and the project board in one place.",
+      "Single Go binary with the UI embedded. Fetches repos in parallel with batched GraphQL queries, caches results and stays within GitHub's rate limits.",
+    ],
+    stack: ["Go", "GraphQL", "JavaScript"],
   },
   {
     name: "MusicKart",
