@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Github, ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
@@ -7,6 +8,7 @@ interface Project {
   summary: string;
   points: string[];
   stack: string[];
+  shots?: { src: string; alt: string; width: number; height: number }[];
 }
 
 // Source links only: the old demo deployments aren't maintained.
@@ -20,6 +22,20 @@ const projects: Project[] = [
       "Single Go binary with the UI embedded. Fetches repos in parallel with batched GraphQL queries, caches results and stays within GitHub's rate limits.",
     ],
     stack: ["Go", "GraphQL", "JavaScript"],
+  },
+  {
+    name: "Instafarm",
+    repo: "https://github.com/void-hr/sense_assign",
+    summary: "Online store for farm supplies where farmers buy credits through Cashfree.",
+    points: [
+      "Integrated the Cashfree payment gateway (test mode): the Express server creates the order and payment session, so the secret key never reaches the browser.",
+      "Credits system with a live price preview, JWT login, cart and product search, with light and dark themes.",
+    ],
+    stack: ["Next.js", "Node.js", "Express", "MongoDB", "Cashfree"],
+    shots: [
+      { src: "/projects/instafarm/home-light.jpg", alt: "Instafarm home page with farm supply products", width: 1200, height: 695 },
+      { src: "/projects/instafarm/add-credits.jpg", alt: "Cashfree checkout for buying credits", width: 1200, height: 867 },
+    ],
   },
   {
     name: "MusicKart",
@@ -67,7 +83,7 @@ export default function Projects() {
           {projects.map((p, i) => (
             <article
               key={p.name}
-              className="reveal rounded-2xl border p-6 flex flex-col"
+              className={`reveal rounded-2xl border p-6 flex flex-col ${p.shots ? "md:col-span-2" : ""}`}
               style={{
                 background: "var(--color-surface)",
                 borderColor: "var(--color-border)",
@@ -92,6 +108,22 @@ export default function Projects() {
               <p className="text-sm mb-4" style={{ color: "var(--color-muted)" }}>
                 {p.summary}
               </p>
+              {p.shots && (
+                <div className="grid sm:grid-cols-2 gap-3 mb-5">
+                  {p.shots.map((shot) => (
+                    <Image
+                      key={shot.src}
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={shot.width}
+                      height={shot.height}
+                      sizes="(min-width: 768px) 480px, 100vw"
+                      className="w-full h-48 object-cover object-top rounded-xl border"
+                      style={{ borderColor: "var(--color-border)" }}
+                    />
+                  ))}
+                </div>
+              )}
               <ul className="space-y-2 mb-5 text-sm" style={{ color: "var(--color-text)" }}>
                 {p.points.map((pt) => (
                   <li key={pt} className="flex gap-2">
